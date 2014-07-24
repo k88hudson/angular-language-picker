@@ -10,7 +10,7 @@ module.exports = function (grunt) {
         base: 'src/templates',
         indentString: '  '
       },
-      k8LangugePicker: {
+      k8LanguagePicker: {
         src: ['src/templates/**/*.html'],
         dest: 'dist/angular-language-picker.templates.js'
       },
@@ -33,7 +33,16 @@ module.exports = function (grunt) {
           spawn: false
         }
       }
-    }
+    },
+
+    connect: {
+      server: {
+        options: {
+          base: './',
+          port: 1987
+        }
+      }
+    },
 
   });
 
@@ -44,6 +53,7 @@ module.exports = function (grunt) {
 
   grunt.registerTask('dev', [
     'build',
+    'connect',
     'watch'
   ]);
 

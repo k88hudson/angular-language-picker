@@ -3,12 +3,18 @@
 <head>
   <meta charset="UTF-8">
   <title>MakeAPI angular</title>
-  <link href="/bower_components/makerstrap/dist/makerstrap.complete.min.css" rel="stylesheet">
+  <link href="https://stuff.webmaker.org/makerstrap/latest/makerstrap.complete.min.css" rel="stylesheet">
   <style>
     .jumbotron {
       background: #F5F5F5;
       color: #555;
       border-bottom: 1px solid #DDD;
+    }
+    .ellipsis {
+      display: block;
+      overflow: hidden;
+      white-space: nowrap;
+      text-overflow: ellipsis;
     }
   </style>
 </head>
@@ -19,15 +25,29 @@
     </div>
   </div>
   <div class="container">
+    <button ng-click="open()" class="btn btn-default">Open</button>
   </div>
 
   <script src="//ajax.googleapis.com/ajax/libs/angularjs/1.2.19/angular.min.js"></script>
-  <script sr=c"//cdnjs.cloudflare.com/ajax/libs/angular-ui-bootstrap/0.10.0/ui-bootstrap.js"></script>
+  <script src="//cdnjs.cloudflare.com/ajax/libs/angular-ui-bootstrap/0.10.0/ui-bootstrap.js"></script>
   <script src="//cdnjs.cloudflare.com/ajax/libs/angular-ui-bootstrap/0.10.0/ui-bootstrap-tpls.js"></script>
+  <script src="/dist/angular-language-picker.js"></script>
+  <script src="/dist/angular-language-picker.templates.js"></script>
   <script>
-  var module = angular.module('example', ['k8LanguagePicker']);
-  module.controller('mainCtrl', function ($scope) {
-    //
+  var module = angular.module('example', ['ui.bootstrap', 'k8LanguagePicker']);
+  module.controller('mainCtrl', function ($scope, $modal) {
+    $scope.open = function() {
+      $modal.open({
+        template: '<div lang-picker supported-languages="supportedLangs" on-language-change="onLanguageChange(lang)"></div>',
+        controller: function($scope, $modalInstance) {
+          $scope.supportedLangs = ['en-US', 'es', 'nb', 'it', 'zh-CN', 'fa', 'fr', 'yi', 'ru', 'et-EE', 'de-CH', 'es-419'];
+          $scope.onLanguageChange = function (lang) {
+            alert('Change language to ' + lang);
+            $modalInstance.close();
+          };
+        }
+      });
+    };
   });
   </script>
 </body>

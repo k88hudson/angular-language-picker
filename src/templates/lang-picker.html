@@ -1,0 +1,22 @@
+<div class="modal-body">
+  <h3>Choose a language</h3>
+  <div class="form-group">
+    <input class="form-control" type="search" ng-model="langSearch">
+  </div>
+
+  <p>Webmaker is offered in 18 languages</p>
+  <div class="row">
+    <div class="col-xs-6 col-sm-4 col-lg-3" ng-repeat="lang in langInfo | filter:langSearch | limitTo: limit">
+      <a href="#" ng-click="onLanguageChange({lang: lang.lang})" class="ellipsis">
+        {{lang.nativeName}}
+      </a>
+    </div>
+    <div ng-if="langInfo.length - limit > 0" class="col-xs-6 col-sm-3 col-lg-2">
+      + {{langInfo.length - limit}} more
+    </div>
+  </div>
+</div>
+
+<div class="modal-footer">
+  Don't see your language? <a href="">Help us translate!</a>
+</div>

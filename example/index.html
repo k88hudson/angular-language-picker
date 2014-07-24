@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="example">
+<head>
+  <meta charset="UTF-8">
+  <title>MakeAPI angular</title>
+  <link href="/bower_components/makerstrap/dist/makerstrap.complete.min.css" rel="stylesheet">
+  <style>
+    .jumbotron {
+      background: #F5F5F5;
+      color: #555;
+      border-bottom: 1px solid #DDD;
+    }
+  </style>
+</head>
+<body ng-controller="mainCtrl">
+  <div class="jumbotron">
+    <div class="container">
+      <h1>Angular Language Picker</h1>
+    </div>
+  </div>
+  <div class="container">
+  </div>
+
+  <script src="//ajax.googleapis.com/ajax/libs/angularjs/1.2.19/angular.min.js"></script>
+  <script sr=c"//cdnjs.cloudflare.com/ajax/libs/angular-ui-bootstrap/0.10.0/ui-bootstrap.js"></script>
+  <script src="//cdnjs.cloudflare.com/ajax/libs/angular-ui-bootstrap/0.10.0/ui-bootstrap-tpls.js"></script>
+  <script>
+  var module = angular.module('example', ['k8LanguagePicker']);
+  module.controller('mainCtrl', function ($scope) {
+    //
+  });
+  </script>
+</body>
+</html>

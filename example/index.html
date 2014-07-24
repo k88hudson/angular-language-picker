@@ -25,7 +25,9 @@
     </div>
   </div>
   <div class="container">
-    <button ng-click="open()" class="btn btn-default">Open</button>
+    <lang-picker supported-languages="i18n.supportedLangs" on-language-change="onLanguageChange(lang)">
+      <span class="fa fa-globe"></span> {{i18n.currentLang}}
+    </lang-picker>
   </div>
 
   <script src="//ajax.googleapis.com/ajax/libs/angularjs/1.2.19/angular.min.js"></script>
@@ -34,19 +36,14 @@
   <script src="/dist/angular-language-picker.js"></script>
   <script src="/dist/angular-language-picker.templates.js"></script>
   <script>
-  var module = angular.module('example', ['ui.bootstrap', 'k8LanguagePicker']);
+  var module = angular.module('example', ['k8LanguagePicker']);
   module.controller('mainCtrl', function ($scope, $modal) {
-    $scope.open = function() {
-      $modal.open({
-        template: '<div lang-picker supported-languages="supportedLangs" on-language-change="onLanguageChange(lang)"></div>',
-        controller: function($scope, $modalInstance) {
-          $scope.supportedLangs = ['en-US', 'es', 'nb', 'it', 'zh-CN', 'fa', 'fr', 'yi', 'ru', 'et-EE', 'de-CH', 'es-419'];
-          $scope.onLanguageChange = function (lang) {
-            alert('Change language to ' + lang);
-            $modalInstance.close();
-          };
-        }
-      });
+    $scope.i18n = {
+      currentLang: 'en-US',
+      supportedLangs: ['en-US', 'es', 'nb', 'it', 'zh-CN', 'fa', 'fr', 'yi', 'ru', 'et-EE', 'de-CH', 'es-419']
+    };
+    $scope.onLanguageChange = function (lang) {
+      $scope.i18n.currentLang = lang;
     };
   });
   </script>

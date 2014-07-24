@@ -30,7 +30,7 @@ angular.module("lang-picker.html", []).run(["$templateCache", function($template
     "</div>\n" +
     "\n" +
     "<div class=\"modal-footer\">\n" +
-    "  Don't see your language? <a href=\"\">Help us translate!</a>\n" +
+    "  Don't see your language? <a target=\"_blank\" href=\"https://webmaker.org/translate\">Help us translate!</a>\n" +
     "</div>\n" +
     "");
 }]);

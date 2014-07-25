@@ -52,6 +52,14 @@
   </div>
   <div class="container">
 
+    <h3 class="page-header">Example</h3>
+    <div class="alert alert-info">
+      <lang-picker supported-languages="i18n.supportedLangs" on-language-change="onLanguageChange(lang)">
+        <span class="fa fa-globe"></span> {{i18n.currentLang}}
+      </lang-picker>
+    </div>
+    <pre>{{codeSamples[2]}}</pre>
+
     <h3 class="page-header">Usage</h3>
     <pre>{{codeSamples[1]}}</pre>
 
@@ -63,12 +71,6 @@
       <li><code>supported-languages</code> (array): A list of all supported language codes.</li>
       <li><code>on-language-change</code> (function): A callback. Should take a single argument, `lang`, which is the country code of the language that was selected.</li>
     </ul>
-
-    <h3 class="page-header">Example</h3>
-    <pre>{{codeSamples[2]}}</pre>
-    <lang-picker supported-languages="i18n.supportedLangs" on-language-change="onLanguageChange(lang)">
-      <span class="fa fa-globe"></span> {{i18n.currentLang}}
-    </lang-picker>
 
   </div>
 

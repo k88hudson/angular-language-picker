@@ -16,12 +16,10 @@ module.exports = function (grunt) {
       },
     },
 
-    copy: {
-      main: {
-        files: [{
-          src: 'src/angular-language-picker.js',
-          dest: 'dist/angular-language-picker.js'
-        }]
+    concat: {
+      dist: {
+        src: ['bower_components/langmap/language-mapping-list.js', 'src/angular-language-picker.js'],
+        dest: 'dist/angular-language-picker.js'
       }
     },
 
@@ -48,7 +46,7 @@ module.exports = function (grunt) {
 
   grunt.registerTask('build', [
     'html2js',
-    'copy'
+    'concat'
   ]);
 
   grunt.registerTask('dev', [

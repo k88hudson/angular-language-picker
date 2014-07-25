@@ -1,6 +1,15 @@
-angular
-  .module('k8LanguagePicker', ['templates-k8LanguagePicker', 'ui.bootstrap'])
-  .constant('langMap', {
+(function(root, factory) {
+  if (typeof define === 'function' && define.amd) {
+    define(function() {
+      return (root.languageMappingList = factory());
+    });
+  } else if (typeof exports === 'object') {
+    module.exports = factory();
+  } else {
+    root.languageMappingList = factory();
+  }
+}(this, function() {
+  return {
     'ach': {
       nativeName: "Lwo",
       englishName: "Acholi"
@@ -261,7 +270,7 @@ angular
       nativeName: "Frysk",
       englishName: "Frisian (West)"
     },
-    'ga':  {
+    'ga': {
       nativeName: "Gaeilge",
       englishName: "Irish"
     },
@@ -725,43 +734,50 @@ angular
       nativeName: "isiZulu",
       englishName: "Zulu"
     }
-  })
-  .directive('langPicker', [
-    '$modal',
-    'langMap',
-    function ($modal, langMap) {
-      return {
-        restrict: 'AE',
-        transclude: true,
-        scope: {
-          supportedLanguages: '=',
-          callback: '&onLanguageChange'
-        },
-        replace: true,
-        templateUrl: 'lang-picker-button.html',
-        link: function (scope, el, attrs, ctrl) {
-          scope.open = function() {
-            $modal.open({
-              templateUrl: 'lang-picker.html',
-              controller: function($scope, $modalInstance) {
-                $scope.limit = 24;
-                $scope.supportedLanguages = scope.supportedLanguages;
-                $scope.langInfo = $scope.supportedLanguages.map(function (lang) {
-                  var obj = langMap[lang] || {
-                    nativeName: lang,
-                    englishName: lang
+  };
+}));
+
+(function (window, angular) {
+  angular
+    .module('k8LanguagePicker', ['templates-k8LanguagePicker', 'ui.bootstrap'])
+    .constant('langMap', window.languageMappingList)
+    .directive('langPicker', [
+      '$modal',
+      'langMap',
+      function ($modal, langMap) {
+        return {
+          restrict: 'AE',
+          transclude: true,
+          scope: {
+            supportedLanguages: '=',
+            callback: '&onLanguageChange'
+          },
+          replace: true,
+          templateUrl: 'lang-picker-button.html',
+          link: function (scope, el, attrs, ctrl) {
+            scope.open = function() {
+              $modal.open({
+                templateUrl: 'lang-picker.html',
+                controller: function($scope, $modalInstance) {
+                  $scope.limit = 24;
+                  $scope.supportedLanguages = scope.supportedLanguages;
+                  $scope.langInfo = $scope.supportedLanguages.map(function (lang) {
+                    var obj = langMap[lang] || {
+                      nativeName: lang,
+                      englishName: lang
+                    };
+                    obj.lang = lang;
+                    return obj;
+                  });
+                  $scope.onLanguageChange = function(lang) {
+                    scope.callback(lang);
+                    $modalInstance.close();
                   };
-                  obj.lang = lang;
-                  return obj;
-                });
-                $scope.onLanguageChange = function(lang) {
-                  scope.callback(lang);
-                  $modalInstance.close();
-                };
-              }
-            });
-          };
-        }
-      };
-    }
-  ]);
+                }
+              });
+            };
+          }
+        };
+      }
+    ]);
+}(this, this.angular));

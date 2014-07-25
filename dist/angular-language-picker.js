@@ -759,6 +759,7 @@
               $modal.open({
                 templateUrl: 'lang-picker.html',
                 controller: function($scope, $modalInstance) {
+                  $scope.close = $modalInstance.close;
                   $scope.limit = 24;
                   $scope.supportedLanguages = scope.supportedLanguages;
                   $scope.langInfo = $scope.supportedLanguages.map(function (lang) {

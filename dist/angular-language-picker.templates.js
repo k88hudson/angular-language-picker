@@ -31,5 +31,10 @@ angular.module("lang-picker.html", []).run(["$templateCache", function($template
     "<div class=\"modal-footer modal-lang-picker\">\n" +
     "  Don't see your language? <a target=\"_blank\" href=\"https://webmaker.org/translate\">Help us translate!</a>\n" +
     "</div>\n" +
+    "\n" +
+    "<button class=\"btn btn-link btn-close\" ng-click=\"close()\">\n" +
+    "  <span class=\"fa fa-times\"></span>\n" +
+    "  <span class=\"sr-only\">Close</span>\n" +
+    "</button>\n" +
     "");
 }]);

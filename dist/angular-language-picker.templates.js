@@ -10,16 +10,15 @@ angular.module("lang-picker-button.html", []).run(["$templateCache", function($t
 
 angular.module("lang-picker.html", []).run(["$templateCache", function($templateCache) {
   $templateCache.put("lang-picker.html",
-    "<div class=\"modal-body\">\n" +
+    "<div class=\"modal-body modal-lang-picker\">\n" +
     "  <h3>Choose a language</h3>\n" +
     "  <div class=\"form-group\">\n" +
     "    <input class=\"form-control\" type=\"search\" ng-model=\"langSearch\" placeholder=\"Search languages...\">\n" +
     "  </div>\n" +
-    "\n" +
-    "  <p>Webmaker is offered in 18 languages</p>\n" +
+    "  <h4>Webmaker is offered in {{langInfo.length}} languages</h4>\n" +
     "  <div class=\"row\">\n" +
     "    <div class=\"col-xs-6 col-sm-4 col-lg-3\" ng-repeat=\"lang in langInfo | filter:langSearch | limitTo: limit\">\n" +
-    "      <a href=\"#\" ng-click=\"onLanguageChange({lang: lang.lang})\" class=\"ellipsis\">\n" +
+    "      <a href=\"#\" ng-click=\"onLanguageChange({lang: lang.lang})\" class=\"ellipsis lang-picker-lang\">\n" +
     "        {{lang.nativeName}}\n" +
     "      </a>\n" +
     "    </div>\n" +
@@ -29,7 +28,7 @@ angular.module("lang-picker.html", []).run(["$templateCache", function($template
     "  </div>\n" +
     "</div>\n" +
     "\n" +
-    "<div class=\"modal-footer\">\n" +
+    "<div class=\"modal-footer modal-lang-picker\">\n" +
     "  Don't see your language? <a target=\"_blank\" href=\"https://webmaker.org/translate\">Help us translate!</a>\n" +
     "</div>\n" +
     "");

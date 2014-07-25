@@ -106,7 +106,7 @@ angular
       englishName: "German (German)"
     },
     'de-CH': {
-      nativeName: "Deutsch (S1witzerland)",
+      nativeName: "Deutsch (Switzerland)",
       englishName: "German (Switzerland)"
     },
     'el': {

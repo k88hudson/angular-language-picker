@@ -17,6 +17,31 @@
       white-space: nowrap;
       text-overflow: ellipsis;
     }
+    .lang-picker-lang {
+      padding: 10px 0;
+    }
+    .modal-lang-picker h3 {
+      margin-top: 0;
+      font-weight: 200;
+    }
+    .modal-lang-picker h4 {
+      font-size: 1em;
+      margin: 10px 0;
+    }
+    .modal-body.modal-lang-picker {
+      padding: 40px;
+    }
+    .modal-footer.modal-lang-picker {
+      font-weight: 200;
+      text-align: center;
+      margin-top: 0;
+      border-top: none;
+      background: #27AAE1;
+      color: #FFF;
+    }
+    .modal-footer.modal-lang-picker a {
+      color: #FFF;
+    }
   </style>
 </head>
 <body ng-controller="mainCtrl">
@@ -26,9 +51,25 @@
     </div>
   </div>
   <div class="container">
+
+    <h3 class="page-header">Usage</h3>
+    <pre>{{codeSamples[1]}}</pre>
+
+    <h3 class="page-header">Base</h3>
+    <pre>{{codeSamples[0]}}</pre>
+
+    <h3 class="page-header">Attributes</h3>
+    <ul>
+      <li><code>supported-languages</code> (array): A list of all supported language codes.</li>
+      <li><code>on-language-change</code> (function): A callback. Should take a single argument, `lang`, which is the country code of the language that was selected.</li>
+    </ul>
+
+    <h3 class="page-header">Example</h3>
+    <pre>{{codeSamples[2]}}</pre>
     <lang-picker supported-languages="i18n.supportedLangs" on-language-change="onLanguageChange(lang)">
       <span class="fa fa-globe"></span> {{i18n.currentLang}}
     </lang-picker>
+
   </div>
 
   <script src="//ajax.googleapis.com/ajax/libs/angularjs/1.2.19/angular.min.js"></script>
@@ -39,6 +80,11 @@
   <script>
   var module = angular.module('example', ['k8LanguagePicker']);
   module.controller('mainCtrl', function ($scope, $modal) {
+    $scope.codeSamples = [
+      '<lang-picker></lang-picker>',
+      'var module = angular.module("myModule", ["k8LanguagePicker"]);',
+      '<lang-picker supported-languages="[\'en-US\', \'fr-CA\']" on-language-change="someCallback(lang)">Choose language</lang-picker>'
+    ];
     $scope.i18n = {
       currentLang: 'en-US',
       supportedLangs: ['en-US', 'es', 'nb', 'it', 'zh-CN', 'fa', 'fr', 'yi', 'ru', 'et-EE', 'de-CH', 'es-419']

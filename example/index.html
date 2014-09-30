@@ -1,10 +1,11 @@
 <!DOCTYPE html>
-<html lang="en" ng-app="example">
+<html lang="en" ng-app="exampleApp">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, user-scalable=no">
-  <title>MakeAPI angular</title>
-  <link href="https://stuff.webmaker.org/makerstrap/latest/makerstrap.complete.min.css" rel="stylesheet">
+  <title>Angular Language Picker Fork</title>
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
+  <link rel="stylesheet" type="text/css" href="//cdnjs.cloudflare.com/ajax/libs/font-awesome/4.2.0/css/font-awesome.min.css">
   <style>
     .jumbotron {
       background: #F5F5F5;
@@ -16,17 +17,23 @@
 <body ng-controller="mainCtrl">
   <div class="jumbotron">
     <div class="container">
-      <h1>Angular Language Picker</h1>
+      <h1>Angular Language Picker (fork)</h1>
     </div>
   </div>
   <div class="container">
 
     <h3 class="page-header">Example</h3>
-    <p><lang-picker supported-languages="i18n.supportedLangs" on-language-change="onLanguageChange(lang)">
-      <span class="fa fa-globe"></span> {{i18n.currentLang}}
-    </lang-picker></p>
-    <pre>{{codeSamples[2]}}</pre>
-
+    <p>
+      <language-picker supported-languages="i18n.supportedLangs" on-language-change="onLanguageChange(lang)">
+       Change Language
+      </language-picker>
+      <p>
+        Changed language:  {{i18n.currentLang.englishName}} | 
+        {{i18n.currentLang.nativeName}} |
+        {{i18n.currentLang.lang}} |
+        {{i18n.currentLang.code}} 
+      </p>
+    </p>
     <h3 class="page-header">Usage</h3>
     <pre>{{codeSamples[1]}}</pre>
 
@@ -36,30 +43,28 @@
     <h3 class="page-header">Attributes</h3>
     <ul>
       <li><code>supported-languages</code> (array): A list of all supported language codes.</li>
-      <li><code>on-language-change</code> (function): A callback. Should take a single argument, `lang`, which is the country code of the language that was selected.</li>
+      <li><code>on-language-change</code> (function): A callback. Should take a single argument, `lang.code`, which is the country code of the language that was selected.</li>
     </ul>
 
   </div>
 
-  <script src="//ajax.googleapis.com/ajax/libs/angularjs/1.2.19/angular.min.js"></script>
-  <script src="//cdnjs.cloudflare.com/ajax/libs/angular-ui-bootstrap/0.10.0/ui-bootstrap.js"></script>
-  <script src="//cdnjs.cloudflare.com/ajax/libs/angular-ui-bootstrap/0.10.0/ui-bootstrap-tpls.js"></script>
+  <script src="//ajax.googleapis.com/ajax/libs/angularjs/1.2.25/angular.min.js"></script>
+  <script src="//cdnjs.cloudflare.com/ajax/libs/angular-ui-bootstrap/0.11.0/ui-bootstrap.js"></script>
+  <script src="//cdnjs.cloudflare.com/ajax/libs/angular-ui-bootstrap/0.11.0/ui-bootstrap-tpls.js"></script>
   <script src="../dist/angular-language-picker.js"></script>
   <script src="../dist/angular-language-picker.templates.js"></script>
   <script>
-  var module = angular.module('example', ['k8LanguagePicker']);
+  var module = angular.module('exampleApp', ['language-picker']);
   module.controller('mainCtrl', function ($scope, $modal) {
     $scope.codeSamples = [
-      '<lang-picker></lang-picker>',
-      'var module = angular.module("myModule", ["k8LanguagePicker"]);',
-      '<lang-picker supported-languages="[\'en-US\', \'fr-CA\']" on-language-change="someCallback(lang)">Choose language</lang-picker>'
+      'var module = angular.module("myApp", ["language-picker"]);',
+      '<language-picker supported-languages="[\'en-US\', \'fr-CA\']" on-language-change="someCallback(lang)">Choose language</language-picker>'
     ];
     $scope.i18n = {
-      currentLang: 'en-US',
-      supportedLangs: ['en-US', 'es', 'nb', 'it', 'zh-CN', 'fa', 'fr', 'yi', 'ru', 'et-EE', 'de-CH', 'es-419']
+      supportedLangs: ['en-US', 'es-AR', 'sk', 'zh-CN', 'fa', 'fr', 'yi', 'ru', 'de-CH', 'es-419']
     };
-    $scope.onLanguageChange = function (lang) {
-      $scope.i18n.currentLang = lang;
+    $scope.onLanguageChange = function (langInfo) {
+      $scope.i18n.currentLang = langInfo;
     };
   });
   </script>

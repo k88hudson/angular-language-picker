@@ -10,16 +10,31 @@ module.exports = function (grunt) {
         base: 'src/templates',
         indentString: '  '
       },
-      k8LanguagePicker: {
+      languagePicker: {
         src: ['src/templates/**/*.html'],
         dest: 'dist/angular-language-picker.templates.js'
       },
     },
 
     concat: {
+      options: {
+        separator: ';'
+      },
       dist: {
-        src: ['bower_components/langmap/language-mapping-list.js', 'src/angular-language-picker.js'],
-        dest: 'dist/angular-language-picker.js'
+        src: ['bower_components/langmap/language-mapping-list.js','src/**/*.js'],
+        dest: 'dist/<%= pkg.name %>.js'
+      }
+    },
+
+    uglify: {
+      options: {
+        banner: '/*! <%= pkg.name %> <%= grunt.template.today("dd-mm-yyyy") %> */\n'
+      },
+      dist: {
+        files: {
+          'dist/<%= pkg.name %>.min.js': ['<%= concat.dist.dest %>'],
+          'dist/<%= pkg.name %>.templates.min.js': ['<%= html2js.languagePicker.dest %>']
+        }
       }
     },
 
@@ -46,7 +61,8 @@ module.exports = function (grunt) {
 
   grunt.registerTask('build', [
     'html2js',
-    'concat'
+    'concat',
+    'uglify'
   ]);
 
   grunt.registerTask('dev', [

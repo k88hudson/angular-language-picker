@@ -1,8 +1,6 @@
 # Angular language picker 
 an unoficial fork that aims to supports angular-gettext
 
-The following information are just unimplemented proposal!
-
 ## Demo
 
 https://rawgit.com/azachar/angular-language-picker/master/example/index.html

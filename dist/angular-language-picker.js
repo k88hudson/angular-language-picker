@@ -748,10 +748,10 @@
           restrict: 'AE',
           transclude: true,
           scope: {
-            supportedLanguages: '=',
+            languages: '=',
+            callback: '&onChange',
             flags:'@?',
-            template:'@?template',
-            callback: '&onLanguageChange'
+            template:'@?'
           },
           replace: true,
           templateUrl: 'language-picker-button.tpl.html',
@@ -812,7 +812,7 @@
                   $scope.limitMin = 4;
                   $scope.limitMax = 24;
                   $scope.flags = flags;
-                  $scope.languages = scope.supportedLanguages.map(function (locale) {
+                  $scope.languages = scope.languages.map(function (locale) {
                       return createLanguageObj(locale);
                   });
 

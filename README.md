@@ -33,13 +33,13 @@ var module = angular.module('exampleApp', ['language-picker']);
 Specify `supported-languages` attribute, which supplies a list of supported languages by code. Specify them with codes using lowdash.
 
 ```html
-<language-picker supported-languages="['en_US', 'fr_CA']" on-language-change="onLanguageChange"></language-picker>
+<language-picker languages="['en_US', 'fr_CA']" on-change="onLanguageChange"></language-picker>
 ```
 
 
 ```js
-$scope.onLanguageChange = function (lang) {
-  $scope.currentLang = lang;
+$scope.onLanguageChange = function (language) {
+  $scope.currentLang = language.code;
 });
 ```
 

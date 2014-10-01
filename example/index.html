@@ -6,8 +6,16 @@
   <title>Angular Language Picker Fork</title>
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
   <link rel="stylesheet" type="text/css" href="//cdnjs.cloudflare.com/ajax/libs/font-awesome/4.2.0/css/font-awesome.min.css">
+  <script src="//ajax.googleapis.com/ajax/libs/angularjs/1.2.25/angular.min.js"></script>
+  <script src="//cdnjs.cloudflare.com/ajax/libs/angular-ui-bootstrap/0.11.0/ui-bootstrap.js"></script>
+  <script src="//cdnjs.cloudflare.com/ajax/libs/angular-ui-bootstrap/0.11.0/ui-bootstrap-tpls.js"></script>
+  <script src="../dist/angular-language-picker.js"></script>
+  <script src="../dist/angular-language-picker.templates.js"></script>
+
+
   <script src="/bower_components/platform/platform.js"></script>
   <link rel="import" href="/bower_components/flag-icon/flag-icon.html">
+  
   <style>
     .jumbotron {
       background: #F5F5F5;
@@ -26,14 +34,14 @@
 
     <h3 class="page-header">Example</h3>
     <p>
-      <language-picker supported-languages="['en-US','fr']" on-language-change="onLanguageChange(language)">
+      <language-picker languages="['en-US','fr']" on-change="onLanguageChange(language)">
        Simple
       </language-picker>
-      <language-picker supported-languages="i18n.supportedLangs" on-language-change="onLanguageChange(language)">
+      <language-picker languages="i18n.supportedLangs" on-change="onLanguageChange(language)">
        Complex
       </language-picker>
-      <language-picker supported-languages="i18n.supportedLangs" on-language-change="onLanguageChange(language)" flags='false'>
-        Unusual
+      <language-picker languages="i18n.supportedLangs" on-change="onLanguageChange(language)" flags='false'>
+        Flags: off
       </language-picker>
 
       <script type="text/ng-template" id="custom.tpl.html">
@@ -41,12 +49,12 @@
        
         </div>
           <label class="alert">
-          Join us at www.example.com
+          Join us at <a href="http://www.example.com">www.example.com</a>
          </label> 
         </div></div></div>
       </script>
-       <language-picker supported-languages="i18n.supportedLangs" on-language-change="onLanguageChange(language)" template='custom.tpl.html'>
-        Custom
+       <language-picker languages="i18n.supportedLangs" on-change="onLanguageChange(language)" template='custom.tpl.html'>
+        Custom Modal Content
       </language-picker>
 
       <p>
@@ -55,39 +63,53 @@
           <li> <label class="info">English name</label> {{i18n.currentLang.englishName}}</li> 
           <li> <label class="info">Native name</label> {{i18n.currentLang.nativeName}}</li> 
           <li> <label class="info">Locale code</label> {{i18n.currentLang.code}}</li> 
+          <li> <label class="info">Country</label> {{i18n.currentLang.country}}</li> 
           <li> <label class="info">Locale code</label> (low dash variant): {{i18n.currentLang.asLowDashCode()}}</li> 
         </ul>
       </p>
     </p>
     <h3 class="page-header">Usage</h3>
     <pre>{{codeSamples[1]}}</pre>
-
-    <h3 class="page-header">Base</h3>
-    <pre>{{codeSamples[0]}}</pre>
-    <p> Include css and js dependencies for Bootstrap, FontAwesome and flag-icon. If you are using grunt-wiredep, it should be done automatically.
-
+   
     <h3 class="page-header">Attributes</h3>
     <ul>
-      <li><code>supported-languages</code> (array): A list of all supported language codes.</li>
-      <li><code>on-language-change</code> (function): A callback. Should take a single argument, `lang.code`, which is the country code of the language that was selected.</li>
+      <li><code>languages</code> (array): A list of all supported language codes.</li>
+      <li><code>on-change</code> (function): A callback. Should take a single argument, <code>language</code>, which is the country code of the language that was selected. <br/>The language object has the following fields:
+
+        <p>
+          <h5>Example for locale <code>sk-SK</code></h5>
+        <ul>
+          <li> <code>language.englishName</code>= Slovak (Slovakia)</li> 
+          <li> <code>language.nativeName</code>= Slovenčina (Slovakia)</li> 
+          <li> <code>language.code</code>= sk-SK</li> 
+          <li> <code>language.asLowDashCode()</code>= sk_SK</li> 
+          <li> <code>language.country</code>= sk</li> 
+        </ul>
+      </p>
+      </li>
+      <li><code>flags</code> (boolean): Enable or disable displaying language flag next a language. By default are flags enabled. The country flags are parsed from locale. So please specify a locale fully - <code>'en-US'</code> instead of <code>'en'</code>.</li>
+      <li><code>template</code> (String): a name for a custom modal template. By default is <code>language-picker-dialog.tpl.html</code> </li>
     </ul>
 
+     <h3 class="page-header">Instalation</h3>
+     <pre>bower install azachar/angular-language-picker --save</pre>
+     <p> Include css and js dependencies for Bootstrap, FontAwesome and flag-icon into your <code>index.html</code>. If you are using grunt-wiredep, it should be done automatically.
+     <p>Add angular module dependency <code>'language-picker'</code></p>
+     <pre>{{codeSamples[0]}}</pre>
+     <p>Use it</p>
+      <pre>{{codeSamples[2]}}</pre>
   </div>
 
-  <script src="//ajax.googleapis.com/ajax/libs/angularjs/1.2.25/angular.min.js"></script>
-  <script src="//cdnjs.cloudflare.com/ajax/libs/angular-ui-bootstrap/0.11.0/ui-bootstrap.js"></script>
-  <script src="//cdnjs.cloudflare.com/ajax/libs/angular-ui-bootstrap/0.11.0/ui-bootstrap-tpls.js"></script>
-  <script src="../dist/angular-language-picker.js"></script>
-  <script src="../dist/angular-language-picker.templates.js"></script>
   <script>
   var module = angular.module('exampleApp', ['language-picker']);
   module.controller('mainCtrl', function ($scope, $modal) {
     $scope.codeSamples = [
       'var module = angular.module("myApp", ["language-picker"]);',
-      '<language-picker supported-languages="[\'en-US\', \'fr-CA\']" on-language-change="someCallback(language)" flags="true">Choose language</language-picker>'
+      '<language-picker languages="[\'en-US\', \'fr-FR\']" on-change="someCallback(language)" flags="true" template="custom.tpl.html">\n   Choose language\n</language-picker>',
+      '<language-picker languages="[\'en-US\', \'fr-FR\']" on-change="someCallback(language)">Choose language</language-picker>'
     ];
     $scope.i18n = {
-      supportedLangs: ['en-US', 'es-AR', 'sk', 'zh-CN', 'fa-IR', 'fr', 'he-IL', 'ru', 'de-CH']
+      supportedLangs: ['en-US', 'es-AR', 'sk-SK', 'zh-CN', 'fa-IR', 'fr', 'he-IL', 'ru', 'de-CH']
     };
     $scope.onLanguageChange = function (language) {
       $scope.i18n.currentLang = language;

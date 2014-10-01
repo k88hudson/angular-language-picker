@@ -5,14 +5,47 @@ module.exports = function (grunt) {
   grunt.initConfig({
     pkg: grunt.file.readJSON('package.json'),
 
+    clean: ['.tmp'],
+
+    // Compiles Jade to html
+    jade: {
+      compile: {
+        options: {
+          data: {
+            debug: false
+          }
+        },
+        files: [{
+          expand: true,
+          src: [
+            'src/templates/*.jade'
+          ],
+          dest: '.tmp',
+          ext: '.tpl.html'
+        }]
+      }
+    },
+
     html2js: {
       options: {
-        base: 'src/templates',
-        indentString: '  '
+        base: '.tmp/src/templates',
+        useStrict: true,
+        quoteChar: '\'',
+        htmlmin: {
+            collapseBooleanAttributes: true,
+            collapseWhitespace: true,
+            removeAttributeQuotes: true,
+            removeComments: true,
+            removeEmptyAttributes: true,
+            removeRedundantAttributes: true,
+            removeScriptTypeAttributes: true,
+            removeStyleLinkTypeAttributes: true
+        }
       },
+      module: 'templates-languagePicker',
       languagePicker: {
-        src: ['src/templates/**/*.html'],
-        dest: 'dist/angular-language-picker.templates.js'
+        src: ['.tmp/**/*.tpl.html'],
+        dest: 'dist/<%= pkg.name %>.templates.js'
       },
     },
 
@@ -60,6 +93,8 @@ module.exports = function (grunt) {
   });
 
   grunt.registerTask('build', [
+    'clean',
+    'jade',
     'html2js',
     'concat',
     'uglify'

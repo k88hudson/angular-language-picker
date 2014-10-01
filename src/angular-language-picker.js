@@ -11,14 +11,18 @@
           transclude: true,
           scope: {
             supportedLanguages: '=',
+            flags:'=?',
             callback: '&onLanguageChange'
           },
           replace: true,
-          templateUrl: 'lang-picker-button.html',
+          templateUrl: 'language-picker-button.tpl.html',
           link: function (scope, el, attrs, ctrl) {
+            if (angular.isUndefined(scope.flags)){
+              scope.flags = "true";
+            }
 
-            function getLangCodeWithLowDash(str) {
-                  var splitLocale = str.split('-');
+            function getLangCodeWithLowDash(localeCode) {
+                  var splitLocale = localeCode.split('-');
                   var localeCode = 'en_US';
 
                   if (splitLocale.length > 1) {
@@ -31,29 +35,41 @@
                   return localeCode;
             }
 
-            function createInfo(lang){
-                  var langInfo = langMap[lang] || {
-                    nativeName: lang,
-                    englishName: lang
+            function getCountry(localeCode) {
+                  var splitLocale = localeCode.split('-');
+                  if (splitLocale.length > 1) {
+                      return splitLocale[1].toLowerCase();
+                  }
+                  return localeCode;
+            }
+
+            function createLanguageObj(locale){
+                  var language = langMap[locale] || {
+                    nativeName: locale,
+                    englishName: locale
                   };
-                  langInfo.lang = lang;
-                  langInfo.code = getLangCodeWithLowDash(lang);
-                  return langInfo;
+                  language.code = locale;
+                  language.country = getCountry(locale);
+                  language.asLowDashCode = function (){
+                    return getLangCodeWithLowDash(locale);
+                  }
+                  return language;
             }
 
             scope.open = function() {
               $modal.open({
-                templateUrl: 'lang-picker.html',
+                templateUrl: 'language-picker-dialog.tpl.html',
                 controller: function($scope, $modalInstance) {
                   $scope.close = $modalInstance.close;
-                  $scope.limit = 24;
-                  $scope.supportedLanguages = scope.supportedLanguages;
-                  $scope.langInfo = scope.supportedLanguages.map(function (lang) {
-                      return createInfo(lang);
+                  $scope.limitMin = 4;
+                  $scope.limitMax = 24;
+                  $scope.flags = scope.flags;
+                  $scope.languages = scope.supportedLanguages.map(function (lang) {
+                      return createLanguageObj(lang);
                   });
 
-                  $scope.onLanguageChange = function(langInfo) {
-                    scope.callback(langInfo);
+                  $scope.onLanguageChange = function(language) {
+                    scope.callback(language);
                     $modalInstance.close();
                   };
                 }

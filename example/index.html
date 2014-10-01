@@ -6,6 +6,8 @@
   <title>Angular Language Picker Fork</title>
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
   <link rel="stylesheet" type="text/css" href="//cdnjs.cloudflare.com/ajax/libs/font-awesome/4.2.0/css/font-awesome.min.css">
+  <script src="/bower_components/platform/platform.js"></script>
+  <link rel="import" href="/bower_components/flag-icon/flag-icon.html">
   <style>
     .jumbotron {
       background: #F5F5F5;
@@ -24,14 +26,24 @@
 
     <h3 class="page-header">Example</h3>
     <p>
-      <language-picker supported-languages="i18n.supportedLangs" on-language-change="onLanguageChange(lang)">
-       Change Language
+      <language-picker supported-languages="['en-US','fr']" on-language-change="onLanguageChange(language)">
+       Simple
       </language-picker>
+      <language-picker supported-languages="i18n.supportedLangs" on-language-change="onLanguageChange(language)">
+       Complex
+      </language-picker>
+      <language-picker supported-languages="i18n.supportedLangs" on-language-change="onLanguageChange(language)" flags='false'>
+        Unusual
+      </language-picker>
+
       <p>
-        Changed language:  {{i18n.currentLang.englishName}} | 
-        {{i18n.currentLang.nativeName}} |
-        {{i18n.currentLang.lang}} |
-        {{i18n.currentLang.code}} 
+        Changed language: 
+        <ul>
+          <li> <label class="info">English name</label> {{i18n.currentLang.englishName}}</li> 
+          <li> <label class="info">Native name</label> {{i18n.currentLang.nativeName}}</li> 
+          <li> <label class="info">Locale code</label> {{i18n.currentLang.code}}</li> 
+          <li> <label class="info">Locale code</label> (low dash variant): {{i18n.currentLang.asLowDashCode()}}</li> 
+        </ul>
       </p>
     </p>
     <h3 class="page-header">Usage</h3>
@@ -39,6 +51,7 @@
 
     <h3 class="page-header">Base</h3>
     <pre>{{codeSamples[0]}}</pre>
+    <p> Include css and js dependencies for Bootstrap, FontAwesome and flag-icon. If you are using grunt-wiredep, it should be done automatically.
 
     <h3 class="page-header">Attributes</h3>
     <ul>
@@ -58,13 +71,13 @@
   module.controller('mainCtrl', function ($scope, $modal) {
     $scope.codeSamples = [
       'var module = angular.module("myApp", ["language-picker"]);',
-      '<language-picker supported-languages="[\'en-US\', \'fr-CA\']" on-language-change="someCallback(lang)">Choose language</language-picker>'
+      '<language-picker supported-languages="[\'en-US\', \'fr-CA\']" on-language-change="someCallback(language)" flags="true">Choose language</language-picker>'
     ];
     $scope.i18n = {
-      supportedLangs: ['en-US', 'es-AR', 'sk', 'zh-CN', 'fa', 'fr', 'yi', 'ru', 'de-CH', 'es-419']
+      supportedLangs: ['en-US', 'es-AR', 'sk', 'zh-CN', 'fa-IR', 'fr', 'he-IL', 'ru', 'de-CH']
     };
-    $scope.onLanguageChange = function (langInfo) {
-      $scope.i18n.currentLang = langInfo;
+    $scope.onLanguageChange = function (language) {
+      $scope.i18n.currentLang = language;
     };
   });
   </script>

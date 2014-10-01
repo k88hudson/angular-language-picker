@@ -1,6 +1,10 @@
 # Angular language picker 
 an unoficial fork that aims to supports angular-gettext
 
+[![Build Status](https://travis-ci.org/azachar/angular-language-picker.svg)](https://travis-ci.org/azachar/angular-language-picker)
+
+The following information are just unimplemented proposal!
+
 ## Demo
 
 https://rawgit.com/azachar/angular-language-picker/master/example/index.html
@@ -42,14 +46,14 @@ $scope.onLanguageChange = function (lang) {
 if you are using 'angular-gettext' use
 
 ```js
-$scope.onLanguageChange = function (langInfo) {
-  gettextCatalog.setCurrentLanguage(langInfo.lang.toLowerCase());
+$scope.onLanguageChange = function (language) {
+  gettextCatalog.setCurrentLanguage(language.code.toLowerCase());
 });
 ````
 
 ### Customization
 
-You can customize a language picker template by defining a template module ``templates-languagePicker`` and removing 
+You can customize language picker's templates by defining a template module ``templates-languagePicker`` and removing 
 ```html
 <script src="bower_components/angular-language-picker/dist/angular-language-picker-templates.js"></script>
 ```

@@ -11,36 +11,46 @@
           transclude: true,
           scope: {
             supportedLanguages: '=',
-            flags:'=?',
+            flags:'@?',
+            template:'@?template',
             callback: '&onLanguageChange'
           },
           replace: true,
           templateUrl: 'language-picker-button.tpl.html',
           link: function (scope, el, attrs, ctrl) {
-            if (angular.isUndefined(scope.flags)){
-              scope.flags = "true";
+            
+            var flags = true;
+            if (angular.isDefined(scope.flags)){
+              flags =scope.flags;
             }
 
-            function getLangCodeWithLowDash(localeCode) {
-                  var splitLocale = localeCode.split('-');
-                  var localeCode = 'en_US';
+           
+            var modalTemplateUrl = 'language-picker-dialog.tpl.html';
+            if (angular.isDefined(scope.template)){
+              modalTemplateUrl = scope.template;
+            }
+
+
+            function getLangCodeWithLowDash(locale) {
+                  var splitLocale = locale.split('-');
+                  var locale = 'en_US';
 
                   if (splitLocale.length > 1) {
-                      localeCode = (splitLocale[0].toLowerCase() + '_' + splitLocale[1].toUpperCase());
+                      locale = (splitLocale[0].toLowerCase() + '_' + splitLocale[1].toUpperCase());
                   }
                   else {
-                      localeCode = splitLocale[0].toLowerCase();
+                      locale = splitLocale[0].toLowerCase();
                   }
 
-                  return localeCode;
+                  return locale;
             }
 
-            function getCountry(localeCode) {
-                  var splitLocale = localeCode.split('-');
+            function getCountry(locale) {
+                  var splitLocale = locale.split('-');
                   if (splitLocale.length > 1) {
                       return splitLocale[1].toLowerCase();
                   }
-                  return localeCode;
+                  return locale;
             }
 
             function createLanguageObj(locale){
@@ -58,14 +68,14 @@
 
             scope.open = function() {
               $modal.open({
-                templateUrl: 'language-picker-dialog.tpl.html',
+                templateUrl: modalTemplateUrl,
                 controller: function($scope, $modalInstance) {
                   $scope.close = $modalInstance.close;
                   $scope.limitMin = 4;
                   $scope.limitMax = 24;
-                  $scope.flags = scope.flags;
-                  $scope.languages = scope.supportedLanguages.map(function (lang) {
-                      return createLanguageObj(lang);
+                  $scope.flags = flags;
+                  $scope.languages = scope.supportedLanguages.map(function (locale) {
+                      return createLanguageObj(locale);
                   });
 
                   $scope.onLanguageChange = function(language) {

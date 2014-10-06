@@ -4,9 +4,9 @@
       span.fa.fa-times
       span.sr-only Close
     h3.modal-title
-     span.fa.fa-globe 
+     i(class='{{ikon}}')
      |    Choose a language
-  .modal-body.modal-lang-picker
+  .modal-body
     .form-group(ng-show='languages.length > limitMin')
       input.form-control(type='search', ng-model='search', placeholder='Search languages...')
       h4 We are available in {{languages.length}} languages
@@ -17,5 +17,15 @@
             span(class='flag-icon flag-icon-{{lang.country}}')
             | &nbsp;
           span {{lang.nativeName}} 
-      .col-xs-6.col-sm-3.col-lg-2(ng-if='languages.length - limitMax > 0')
+      .col-xs-6.col-sm-4.col-lg-4(ng-if='languages.length - limitMax > 0')
         | + {{languages.length - limitMax}} more
+
+    div(ng-if='help')
+     <br>
+     .row
+        .col-lg-12 
+          .well.text-center.text-muted
+            | Don't you see your language? Help us 
+            a(href='{{help}}') translate
+            |  it!
+

@@ -13,12 +13,20 @@
             languages: '=',
             callback: '&onChange',
             flags:'@?',
+            icon:'@?',
+            help:'@?',
             template:'@?'
           },
           replace: true,
           templateUrl: 'language-picker-button.tpl.html',
           link: function (scope, el, attrs, ctrl) {
             
+            scope.ikon ='fa fa-language'; 
+            if (angular.isDefined(scope.icon)){
+               scope.ikon = scope.icon;
+            }
+
+
             var flags = true;
             if (angular.isDefined(scope.flags)){
               flags =scope.flags;
@@ -74,6 +82,8 @@
                   $scope.limitMin = 4;
                   $scope.limitMax = 24;
                   $scope.flags = flags;
+                  $scope.ikon = scope.ikon;
+                  $scope.help = scope.help;
                   $scope.languages = scope.languages.map(function (locale) {
                       return createLanguageObj(locale);
                   });

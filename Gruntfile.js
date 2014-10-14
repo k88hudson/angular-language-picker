@@ -71,6 +71,17 @@ module.exports = function (grunt) {
       }
     },
 
+    cssmin: {
+      options: {
+        banner: '/*! <%= pkg.name %> <%= grunt.template.today("dd-mm-yyyy") %> */\n'
+      },
+      combine: {
+        files: {
+          'dist/<%= pkg.name %>.min.css': ['src/**/*.css']
+        }
+      }
+    },
+
     watch: {
       src: {
         files: ['src/**/*'],
@@ -97,7 +108,8 @@ module.exports = function (grunt) {
     'jade',
     'html2js',
     'concat',
-    'uglify'
+    'uglify',
+    'cssmin'
   ]);
 
   grunt.registerTask('dev', [

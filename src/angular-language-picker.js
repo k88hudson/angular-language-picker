@@ -3,9 +3,9 @@
     .module('language-picker', ['templates-languagePicker','ui.bootstrap'])
     .constant('langMap', window.languageMappingList)
     .directive('languagePicker', [
-      '$modal',
+      '$uibModal',
       'langMap',
-      function ($modal, langMap) {
+      function ($uibModal, langMap) {
         return {
           restrict: 'AE',
           transclude: true,
@@ -20,8 +20,8 @@
           replace: true,
           templateUrl: 'language-picker-button.tpl.html',
           link: function (scope, el, attrs, ctrl) {
-            
-            scope.ikon ='fa fa-language'; 
+
+            scope.ikon ='fa fa-language';
             if (angular.isDefined(scope.icon)){
                scope.ikon = scope.icon;
             }
@@ -32,7 +32,7 @@
               flags =scope.flags;
             }
 
-           
+
             var modalTemplateUrl = 'language-picker-dialog.tpl.html';
             if (angular.isDefined(scope.template)){
               modalTemplateUrl = scope.template;
@@ -75,10 +75,10 @@
             }
 
             scope.open = function() {
-              $modal.open({
+              $uibModal.open({
                 templateUrl: modalTemplateUrl,
-                controller: function($scope, $modalInstance) {
-                  $scope.close = $modalInstance.close;
+                controller: function($scope, $uibModalInstance) {
+                  $scope.close = $uibModalInstance.close;
                   $scope.limitMin = 4;
                   $scope.limitMax = 24;
                   $scope.flags = flags;
@@ -90,7 +90,7 @@
 
                   $scope.onLanguageChange = function(language) {
                     scope.callback(language);
-                    $modalInstance.close();
+                    $uibModalInstance.close();
                   };
                 }
               });

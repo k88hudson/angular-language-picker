@@ -11,7 +11,7 @@
           transclude: true,
           scope: {
             languages: '=',
-            callback: '&onChange',
+            callback: '&?onChange',
             model: '=?',
             empty: '@?',
             flags: '@?',
@@ -102,7 +102,7 @@
                     } else {
                       scope.model = undefined;
                     }
-                    if (scope.callback){
+                    if (angular.isDefined(scope.callback)){
                       scope.callback()(language);
                     }
                     $uibModalInstance.close();

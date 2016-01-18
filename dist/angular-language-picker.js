@@ -751,6 +751,7 @@
             languages: '=',
             callback: '&onChange',
             model: '=?',
+            empty: '@?',
             flags: '@?',
             icon: '@?',
             help: '@?',
@@ -828,13 +829,20 @@
                   $scope.flags = flags;
                   $scope.ikon = scope.ikon;
                   $scope.help = scope.help;
+                  $scope.empty = scope.empty;
                   $scope.languages = scope.languages.map(function(locale) {
                     return createLanguageObj(locale);
                   });
 
                   $scope.selectedLanguage = function(language) {
-                    scope.model  = language.code;
-                    scope.callback({language:language});
+                    if (language){
+                      scope.model  = language.code;
+                    } else {
+                      scope.model = undefined;
+                    }
+                    if (scope.callback){
+                      scope.callback()(language);
+                    }
                     $uibModalInstance.close();
                   };
                 }

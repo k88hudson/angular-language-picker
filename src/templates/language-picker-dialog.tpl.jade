@@ -11,6 +11,13 @@
       input.form-control(type='search', ng-model='search', placeholder='Search languages...')
       h4 We are available in {{languages.length}} languages
     .row
+      .col-xs-6.col-sm-4.col-lg-4(ng-show='empty')
+        a.language(ng-click='selectedLanguage(undefined)')
+          span(ng-if='flags')
+            i.fa.fa-language
+            | &nbsp;
+          span Any language
+
       .col-xs-6.col-sm-4.col-lg-4(ng-repeat='lang in languages | filter:search | limitTo: limitMax')
         a.language(ng-click='selectedLanguage(lang)')
           span(ng-if='flags')

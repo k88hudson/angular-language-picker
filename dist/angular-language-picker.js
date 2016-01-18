@@ -626,13 +626,9 @@
       nativeName: "Svenska",
       englishName: "Swedish"
     },
-    'sw': {
-      nativeName: "Kiswahili",
-      englishName: "Swahili"
-    },
     'sw-KE': {
       nativeName: "Kiswahili",
-      englishName: "Swahili (Kenya)"
+      englishName: "Swahili"
     },
     'ta': {
       nativeName: "தமிழ்",
@@ -749,28 +745,36 @@
       'langMap',
       function($uibModal, langMap) {
         return {
-          restrict: 'AE',
+          restrict: 'A',
           transclude: true,
           scope: {
             languages: '=',
             callback: '&onChange',
+            model: '=?',
             flags: '@?',
             icon: '@?',
             help: '@?',
             template: '@?'
           },
-          replace: true,
+          replace: false,
           templateUrl: 'language-picker-button.tpl.html',
           link: function(scope, el, attrs, ctrl) {
 
-            scope.ikon = 'fa fa-language';
-            if (angular.isDefined(scope.icon)) {
-              scope.ikon = scope.icon;
+            if (angular.isDefined(scope.icon)){
+               if (scope.icon == 'icon'){
+                  scope.ikon ='fa fa-language'; 
+               } else {
+                  scope.ikon = scope.icon;
+              }
             }
 
-            var flags = true;
-            if (angular.isDefined(scope.flags)) {
-              flags = scope.flags;
+            var flags;
+            if (angular.isDefined(scope.flags)){
+               if (scope.flags == 'flags'){
+                  flags = true;
+               } else {
+                  flags = Boolean(scope.flags);
+              }
             }
 
             var modalTemplateUrl = 'language-picker-dialog.tpl.html';
@@ -828,8 +832,9 @@
                     return createLanguageObj(locale);
                   });
 
-                  $scope.onLanguageChange = function(language) {
-                    scope.callback(language);
+                  $scope.selectedLanguage = function(language) {
+                    scope.model  = language.code;
+                    scope.callback({language:language});
                     $uibModalInstance.close();
                   };
                 }

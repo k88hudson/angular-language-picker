@@ -12,7 +12,7 @@
       h4 We are available in {{languages.length}} languages
     .row
       .col-xs-6.col-sm-4.col-lg-4(ng-repeat='lang in languages | filter:search | limitTo: limitMax')
-        a.language(ng-click='onLanguageChange({language:lang})')
+        a.language(ng-click='selectedLanguage(lang)')
           span(ng-if='flags')
             span(class='flag-icon flag-icon-{{lang.country}}')
             | &nbsp;

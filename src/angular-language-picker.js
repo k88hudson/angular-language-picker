@@ -19,9 +19,8 @@
             help: '@?',
             template: '@?'
           },
-          replace: false,
           templateUrl: 'language-picker-button.tpl.html',
-          link: function(scope, el, attrs, ctrl) {
+          link: function(scope, elm, attrs, ctrl) {
 
             if (angular.isDefined(scope.icon)){
                if (scope.icon == 'icon'){
@@ -110,6 +109,8 @@
                 }
               });
             };
+
+            elm.bind('click', scope.open);
           }
         };
       }

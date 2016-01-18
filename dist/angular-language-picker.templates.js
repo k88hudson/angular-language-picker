@@ -3,7 +3,7 @@ angular.module('templates-languagePicker', ['language-picker-button.tpl.html', '
 angular.module('language-picker-button.tpl.html', []).run(['$templateCache', function($templateCache) {
   'use strict';
   $templateCache.put('language-picker-button.tpl.html',
-    '<span ng-click=open()><i ng-if=ikon class={{ikon}}>&nbsp;</i><ng-transclude></ng-transclude></span>');
+    '<i ng-if=ikon class={{ikon}}>&nbsp;</i><ng-transclude></ng-transclude>');
 }]);
 
 angular.module('language-picker-dialog.tpl.html', []).run(['$templateCache', function($templateCache) {

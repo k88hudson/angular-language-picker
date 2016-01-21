@@ -762,7 +762,7 @@
 
             if (angular.isDefined(scope.icon)){
                if (scope.icon == 'icon'){
-                  scope.ikon ='fa fa-language'; 
+                  scope.ikon ='fa fa-language';
                } else {
                   scope.ikon = scope.icon;
               }
@@ -814,14 +814,14 @@
               language.country = getCountry(locale);
               language.asLowDashCode = function() {
                 return getLangCodeWithLowDash(locale);
-              }
+              };
               return language;
             }
 
             scope.open = function() {
               $uibModal.open({
                 templateUrl: modalTemplateUrl,
-                controller: function($scope, $uibModalInstance) {
+                controller: ['$scope', '$uibModalInstance', function($scope, $uibModalInstance) {
                   $scope.close = $uibModalInstance.close;
                   $scope.limitMin = 4;
                   $scope.limitMax = 24;
@@ -844,7 +844,7 @@
                     }
                     $uibModalInstance.close();
                   };
-                }
+                }]
               });
             };
 

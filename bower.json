@@ -18,7 +18,7 @@
   "dependencies": {
     "angular-bootstrap": "~0.14.3",
     "font-awesome": "~4.5.0",
-    "flag-icon-css": "~0.6.3"
+    "flag-icon-css": "~1.1.0"
   },
   "devDependencies": {
     "langmap": "~0.0.8"

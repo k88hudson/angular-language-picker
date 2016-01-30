@@ -3,7 +3,12 @@
   "version": "0.2.3",
   "author": "azachar",
   "license": "MPL-2.0",
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/azachar/angular-language-picker.git"
+  },
   "devDependencies": {
+    "cz-conventional-changelog": "^1.1.5",
     "grunt": "^0.4.5",
     "grunt-contrib-clean": "~0.7.0",
     "grunt-contrib-concat": "^0.5.0",
@@ -15,5 +20,13 @@
     "grunt-contrib-watch": "^0.6.1",
     "grunt-html2js": "^0.3.5",
     "jit-grunt": "^0.9.1"
+  },
+  "config": {
+    "commitizen": {
+      "path": "./node_modules/cz-conventional-changelog"
+    }
+  },
+  "scripts": {
+    "commit": "git cz"
   }
 }

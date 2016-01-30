@@ -1,5 +1,6 @@
-# Angular language picker 
-A fork that aims to provide out-of-box solution for selecting languages. [![Build Status](https://travis-ci.org/azachar/angular-language-picker.svg)](https://travis-ci.org/azachar/angular-language-picker)
+# Angular language picker
+A fork that aims to provide out-of-box solution for selecting languages. [![Build Status](https://travis-ci.org/azachar/angular-language-picker.svg)](https://travis-ci.org/azachar/angular-language-picker) [![Commitizen friendly](https://img.shields.io/badge/commitizen-friendly-brightgreen.svg)](http://commitizen.github.io/cz-cli/)
+
 
 # Home Page with examples
 http://blog.chocolatejar.eu/angular-language-picker
@@ -40,3 +41,7 @@ In your project folder
 ```bash
   bower link angular-language-picker
 ```
+
+## Want to help ?
+Want to file a bug, contribute some code, or improve documentation? Excellent! Read up on our guidelines for [Contributing](CONTRIBUTING.md).
+

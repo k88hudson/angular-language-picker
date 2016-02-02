@@ -1,5 +1,7 @@
 # Angular language picker
-A fork that aims to provide out-of-box solution for selecting languages. [![Build Status](https://travis-ci.org/azachar/angular-language-picker.svg)](https://travis-ci.org/azachar/angular-language-picker) [![Commitizen friendly](https://img.shields.io/badge/commitizen-friendly-brightgreen.svg)](http://commitizen.github.io/cz-cli/)
+A fork that aims to provide out-of-box solution for selecting languages.
+
+[![Build Status](https://travis-ci.org/azachar/angular-language-picker.svg)](https://travis-ci.org/azachar/angular-language-picker) [![Commitizen friendly](https://img.shields.io/badge/commitizen-friendly-brightgreen.svg)](http://commitizen.github.io/cz-cli/) [![Issue Stats](http://issuestats.com/github/azachar/angular-language-picker/badge/pr?style=flat)](http://issuestats.com/github/azachar/angular-language-picker) [![Issue Stats](http://issuestats.com/github/azachar/angular-language-picker/badge/issue?style=flat)](http://issuestats.com/github/azachar/angular-language-picker)
 
 
 # Home Page with examples

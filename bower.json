@@ -21,7 +21,7 @@
     "flag-icon-css": "~1.1.0"
   },
   "devDependencies": {
-    "langmap": "~0.0.8"
+    "langmap": "azachar/language-mapping-list#^0.0.11"
   },
   "ignore": [
     "**/.*",

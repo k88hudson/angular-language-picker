@@ -94,9 +94,17 @@
       nativeName: "Čeština",
       englishName: "Czech"
     },
+    'cy': {
+      nativeName: "Cymraeg",
+      englishName: "Welsh"
+    },
     'cy-GB': {
       nativeName: "Cymraeg",
       englishName: "Welsh"
+    },
+    'da': {
+      nativeName: "Dansk",
+      englishName: "Danish"
     },
     'da-DK': {
       nativeName: "Dansk",
@@ -111,8 +119,8 @@
       englishName: "German (Austria)"
     },
     'de-DE': {
-      nativeName: "Deutsch (German)",
-      englishName: "German (German)"
+      nativeName: "Deutsch (Deutschland)",
+      englishName: "German (Germany)"
     },
     'de-CH': {
       nativeName: "Deutsch (Switzerland)",
@@ -266,6 +274,14 @@
       nativeName: "Français (France)",
       englishName: "French (France)"
     },
+    'fr-BE': {
+      nativeName: "Français (Belgique)",
+      englishName: "French (Belgium)"
+    },
+    'fr-CH': {
+      nativeName: "Français (Suisse)",
+      englishName: "French (Switzerland)"
+    },
     'fy-NL': {
       nativeName: "Frysk",
       englishName: "Frisian (West)"
@@ -317,6 +333,10 @@
     'hr-HR': {
       nativeName: "Hrvatski",
       englishName: "Croatian"
+    },
+    'ht': {
+      nativeName: "Kreyòl",
+      englishName: "Haitian Creole"
     },
     'hu': {
       nativeName: "Magyar",
@@ -410,6 +430,10 @@
       nativeName: "Latin",
       englishName: "Latin"
     },
+    'lb': {
+      nativeName: "Lëtzebuergesch",
+      englishName: "Luxembourgish"
+    },
     'li-NL': {
       nativeName: "Lèmbörgs",
       englishName: "Limburgish"
@@ -474,6 +498,10 @@
       nativeName: "ဗမာစကာ",
       englishName: "Burmese"
     },
+    'no': {
+      nativeName: "Norsk",
+      englishName: "Norwegian"
+    },
     'nb': {
       nativeName: "Norsk (bokmål)",
       englishName: "Norwegian (bokmal)"
@@ -496,11 +524,11 @@
     },
     'nl-BE': {
       nativeName: "Nederlands (België)",
-      englishName: "Dutch (België)"
+      englishName: "Dutch (Belgium)"
     },
     'nl-NL': {
-      nativeName: "Nederlands, Dutch",
-      englishName: "Netherlands, Dutch"
+      nativeName: "Nederlands (Nederland)",
+      englishName: "Dutch (Netherlands)"
     },
     'nn-NO': {
       nativeName: "Norsk (nynorsk)",
@@ -626,9 +654,13 @@
       nativeName: "Svenska",
       englishName: "Swedish"
     },
-    'sw-KE': {
+    'sw': {
       nativeName: "Kiswahili",
       englishName: "Swahili"
+    },
+    'sw-KE': {
+      nativeName: "Kiswahili",
+      englishName: "Swahili (Kenya)"
     },
     'ta': {
       nativeName: "தமிழ்",
@@ -718,17 +750,33 @@
       nativeName: "ייִדיש (German)",
       englishName: "Yiddish (German)"
     },
+    'zh': {
+      nativeName: "中文",
+      englishName: "Chinese"
+    },
+    'zh-Hans': {
+      nativeName: "中文简体",
+      englishName: "Chinese Simplified"
+    },
+    'zh-Hant': {
+      nativeName: "中文繁體",
+      englishName: "Chinese Traditional"
+    },
     'zh-CN': {
-      nativeName: "中文(简体)",
-      englishName: "Simplified Chinese (China)"
+      nativeName: "中文（中国）",
+      englishName: "Chinese Simplified (China)"
     },
     'zh-HK': {
-      nativeName: "中文(香港)",
-      englishName: "Traditional Chinese (Hong Kong)"
+      nativeName: "中文（香港）",
+      englishName: "Chinese Traditional (Hong Kong)"
+    },
+    'zh-SG': {
+      nativeName: "中文（新加坡）",
+      englishName: "Chinese Simplified (Singapore)"
     },
     'zh-TW': {
-      nativeName: "中文(台灣)",
-      englishName: "Traditional Chinese (Taiwan)"
+      nativeName: "中文（台灣）",
+      englishName: "Chinese Traditional (Taiwan)"
     },
     'zu-ZA': {
       nativeName: "isiZulu",

@@ -45,5 +45,24 @@ In your project folder
   bower link angular-language-picker
 ```
 
+## Releasing
+
+* Update version in ``package.json``
+* Run
+
+```bash
+  grunt build
+```
+
+* Commit and push to the master
+* Tag a new version in the repository
+* Generate changelog
+
+```bash
+  npm run changelog
+```
+
+* Commit and push to the master
+
 ## Want to help ?
 Want to file a bug, contribute some code, or improve documentation? Excellent! Read up on our guidelines for [Contributing](CONTRIBUTING.md).

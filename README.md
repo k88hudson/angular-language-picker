@@ -9,10 +9,11 @@ http://blog.chocolatejar.eu/angular-language-picker
 
 
 ## Features
-* Country's flag
+* Country's flag http://lipis.github.io/flag-icon-css
 * Look and feel customization via templates
 * Search between languages if there too many to select from
 * Based on Bootstrap 3 and UI Bootstrap 0.14
+* Based on https://github.com/mozilla/language-mapping-list
 
 ## Install
 
@@ -46,4 +47,3 @@ In your project folder
 
 ## Want to help ?
 Want to file a bug, contribute some code, or improve documentation? Excellent! Read up on our guidelines for [Contributing](CONTRIBUTING.md).
-

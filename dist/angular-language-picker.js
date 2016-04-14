@@ -42,6 +42,10 @@
       nativeName: "العربية",
       englishName: "Arabic"
     },
+    'ar-MA': {
+      nativeName: "العربية",
+      englishName: "Arabic (Morocco)"
+    },
     'ay-BO': {
       nativeName: "Aymar aru",
       englishName: "Aymara"
@@ -130,6 +134,10 @@
       nativeName: "Deutsch (Switzerland)",
       englishName: "German (Switzerland)"
     },
+    'dsb': {
+      nativeName: "Dolnoserbšćina",
+      englishName: "Lower Sorbian"
+    },
     'el': {
       nativeName: "Ελληνικά",
       englishName: "Greek"
@@ -145,6 +153,10 @@
     'en-GB': {
       nativeName: "English (UK)",
       englishName: "English (UK)"
+    },
+    'en-AU': {
+      nativeName: "English (Australia)",
+      englishName: "English (Australia)"
     },
     'en-CA': {
       nativeName: "English (Canada)",
@@ -342,6 +354,10 @@
       nativeName: "Hrvatski",
       englishName: "Croatian"
     },
+    'hsb': {
+      nativeName: "Hornjoserbšćina",
+      englishName: "Upper Sorbian"
+    },
     'ht': {
       nativeName: "Kreyòl",
       englishName: "Haitian Creole"
@@ -411,7 +427,7 @@
       englishName: "Khmer"
     },
     'kn': {
-      nativeLanguage: "ಕನ್ನಡ",
+      nativeName: "ಕನ್ನಡ",
       englishName: "Kannada"
     },
     'kn-IN': {

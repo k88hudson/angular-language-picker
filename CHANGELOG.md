@@ -1,13 +1,19 @@
 # Change Log
 
+## [v0.4.3](https://github.com/azachar/angular-language-picker/tree/v0.4.3) (2016-04-14)
+[Full Changelog](https://github.com/azachar/angular-language-picker/compare/v0.4.2...v0.4.3)
+
+**Closed issues:**
+
+- Feature: Automate Release [\#18](https://github.com/azachar/angular-language-picker/issues/18)
+- Feature : Stylus integration [\#8](https://github.com/azachar/angular-language-picker/issues/8)
+
 ## [v0.4.2](https://github.com/azachar/angular-language-picker/tree/v0.4.2) (2016-02-26)
 [Full Changelog](https://github.com/azachar/angular-language-picker/compare/v0.4.1...v0.4.2)
 
 **Merged pull requests:**
 
 - feat\(gitattrs\): adds gitattributes [\#22](https://github.com/azachar/angular-language-picker/pull/22) ([lbenie](https://github.com/lbenie))
-- feat\(editorconfig\): adds editorconfig file [\#21](https://github.com/azachar/angular-language-picker/pull/21) ([lbenie](https://github.com/lbenie))
-- feat\(stylus\): adds stylus support [\#19](https://github.com/azachar/angular-language-picker/pull/19) ([lbenie](https://github.com/lbenie))
 
 ## [v0.4.1](https://github.com/azachar/angular-language-picker/tree/v0.4.1) (2016-02-23)
 [Full Changelog](https://github.com/azachar/angular-language-picker/compare/v0.4.0...v0.4.1)
@@ -23,9 +29,7 @@
 
 **Merged pull requests:**
 
-- feat\(changelog\): add changelog automation to project [\#17](https://github.com/azachar/angular-language-picker/pull/17) ([lbenie](https://github.com/lbenie))
 - docs\(issuestats\): Add issuestats badges. [\#16](https://github.com/azachar/angular-language-picker/pull/16) ([lbenie](https://github.com/lbenie))
-- Contributions guidelines [\#13](https://github.com/azachar/angular-language-picker/pull/13) ([lbenie](https://github.com/lbenie))
 
 ## [v0.4.0](https://github.com/azachar/angular-language-picker/tree/v0.4.0) (2016-01-25)
 [Full Changelog](https://github.com/azachar/angular-language-picker/compare/v0.3.3...v0.4.0)
@@ -37,7 +41,6 @@
 **Merged pull requests:**
 
 - fix angular Dependency Injection for the controller [\#5](https://github.com/azachar/angular-language-picker/pull/5) ([sharvit](https://github.com/sharvit))
-- Added support for ui bootstrap 0.14 [\#3](https://github.com/azachar/angular-language-picker/pull/3) ([lbenie](https://github.com/lbenie))
 
 ## [v0.3.3](https://github.com/azachar/angular-language-picker/tree/v0.3.3) (2014-10-14)
 [Full Changelog](https://github.com/azachar/angular-language-picker/compare/v0.3.2...v0.3.3)

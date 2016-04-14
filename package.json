@@ -27,6 +27,7 @@
     }
   },
   "scripts": {
-    "commit": "git cz"
+    "commit": "git cz",
+    "changelog": "github_changelog_generator"
   }
 }

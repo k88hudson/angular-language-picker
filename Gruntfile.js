@@ -5,21 +5,80 @@ module.exports = function (grunt) {
   grunt.initConfig({
     pkg: grunt.file.readJSON('package.json'),
 
+    clean: ['.tmp'],
+
+    // Compiles Jade to html
+    jade: {
+      compile: {
+        options: {
+          data: {
+            debug: false
+          }
+        },
+        files: [{
+          expand: true,
+          src: [
+            'src/templates/*.jade'
+          ],
+          dest: '.tmp',
+          ext: '.tpl.html'
+        }]
+      }
+    },
+
     html2js: {
       options: {
-        base: 'src/templates',
-        indentString: '  '
+        base: '.tmp/src/templates',
+        useStrict: true,
+        quoteChar: '\'',
+        htmlmin: {
+            collapseBooleanAttributes: true,
+            collapseWhitespace: true,
+            removeAttributeQuotes: true,
+            removeComments: true,
+            removeEmptyAttributes: true,
+            removeRedundantAttributes: true,
+            removeScriptTypeAttributes: true,
+            removeStyleLinkTypeAttributes: true
+        }
       },
-      k8LanguagePicker: {
-        src: ['src/templates/**/*.html'],
-        dest: 'dist/angular-language-picker.templates.js'
+      module: 'templates-languagePicker',
+      languagePicker: {
+        src: ['.tmp/**/*.tpl.html'],
+        dest: 'dist/<%= pkg.name %>.templates.js'
       },
     },
 
     concat: {
+      options: {
+        separator: ';'
+      },
       dist: {
-        src: ['bower_components/langmap/language-mapping-list.js', 'src/angular-language-picker.js'],
-        dest: 'dist/angular-language-picker.js'
+        src: ['bower_components/langmap/language-mapping-list.js','src/**/*.js'],
+        dest: 'dist/<%= pkg.name %>.js'
+      }
+    },
+
+    uglify: {
+      options: {
+        banner: '/*! <%= pkg.name %> <%= grunt.template.today("dd-mm-yyyy") %> */\n'
+      },
+      dist: {
+        files: {
+          'dist/<%= pkg.name %>.min.js': ['<%= concat.dist.dest %>'],
+          'dist/<%= pkg.name %>.templates.min.js': ['<%= html2js.languagePicker.dest %>']
+        }
+      }
+    },
+
+    cssmin: {
+      options: {
+        banner: '/*! <%= pkg.name %> <%= grunt.template.today("dd-mm-yyyy") %> */\n'
+      },
+      combine: {
+        files: {
+          'dist/<%= pkg.name %>.min.css': ['src/**/*.css']
+        }
       }
     },
 
@@ -45,8 +104,12 @@ module.exports = function (grunt) {
   });
 
   grunt.registerTask('build', [
+    'clean',
+    'jade',
     'html2js',
-    'concat'
+    'concat',
+    'uglify',
+    'cssmin'
   ]);
 
   grunt.registerTask('dev', [

@@ -42,6 +42,10 @@
       nativeName: "العربية",
       englishName: "Arabic"
     },
+    'ar-MA': {
+      nativeName: "العربية",
+      englishName: "Arabic (Morocco)"
+    },
     'ay-BO': {
       nativeName: "Aymar aru",
       englishName: "Aymara"
@@ -53,6 +57,10 @@
     'be-BY': {
       nativeName: "Беларуская",
       englishName: "Belarusian"
+    },
+    'bg': {
+      nativeName: "Български",
+      englishName: "Bulgarian"
     },
     'bg-BG': {
       nativeName: "Български",
@@ -94,9 +102,17 @@
       nativeName: "Čeština",
       englishName: "Czech"
     },
+    'cy': {
+      nativeName: "Cymraeg",
+      englishName: "Welsh"
+    },
     'cy-GB': {
       nativeName: "Cymraeg",
       englishName: "Welsh"
+    },
+    'da': {
+      nativeName: "Dansk",
+      englishName: "Danish"
     },
     'da-DK': {
       nativeName: "Dansk",
@@ -111,12 +127,16 @@
       englishName: "German (Austria)"
     },
     'de-DE': {
-      nativeName: "Deutsch (German)",
-      englishName: "German (German)"
+      nativeName: "Deutsch (Deutschland)",
+      englishName: "German (Germany)"
     },
     'de-CH': {
       nativeName: "Deutsch (Switzerland)",
       englishName: "German (Switzerland)"
+    },
+    'dsb': {
+      nativeName: "Dolnoserbšćina",
+      englishName: "Lower Sorbian"
     },
     'el': {
       nativeName: "Ελληνικά",
@@ -133,6 +153,10 @@
     'en-GB': {
       nativeName: "English (UK)",
       englishName: "English (UK)"
+    },
+    'en-AU': {
+      nativeName: "English (Australia)",
+      englishName: "English (Australia)"
     },
     'en-CA': {
       nativeName: "English (Canada)",
@@ -266,6 +290,14 @@
       nativeName: "Français (France)",
       englishName: "French (France)"
     },
+    'fr-BE': {
+      nativeName: "Français (Belgique)",
+      englishName: "French (Belgium)"
+    },
+    'fr-CH': {
+      nativeName: "Français (Suisse)",
+      englishName: "French (Switzerland)"
+    },
     'fy-NL': {
       nativeName: "Frysk",
       englishName: "Frisian (West)"
@@ -314,9 +346,21 @@
       nativeName: "हिन्दी",
       englishName: "Hindi"
     },
+    'hr': {
+      nativeName: "Hrvatski",
+      englishName: "Croatian"
+    },
     'hr-HR': {
       nativeName: "Hrvatski",
       englishName: "Croatian"
+    },
+    'hsb': {
+      nativeName: "Hornjoserbšćina",
+      englishName: "Upper Sorbian"
+    },
+    'ht': {
+      nativeName: "Kreyòl",
+      englishName: "Haitian Creole"
     },
     'hu': {
       nativeName: "Magyar",
@@ -383,7 +427,7 @@
       englishName: "Khmer"
     },
     'kn': {
-      nativeLanguage: "ಕನ್ನಡ",
+      nativeName: "ಕನ್ನಡ",
       englishName: "Kannada"
     },
     'kn-IN': {
@@ -410,13 +454,25 @@
       nativeName: "Latin",
       englishName: "Latin"
     },
+    'lb': {
+      nativeName: "Lëtzebuergesch",
+      englishName: "Luxembourgish"
+    },
     'li-NL': {
       nativeName: "Lèmbörgs",
       englishName: "Limburgish"
     },
+    'lt': {
+      nativeName: "Lietuvių",
+      englishName: "Lithuanian"
+    },
     'lt-LT': {
       nativeName: "Lietuvių",
       englishName: "Lithuanian"
+    },
+    'lv': {
+      nativeName: "Latviešu",
+      englishName: "Latvian"
     },
     'lv-LV': {
       nativeName: "Latviešu",
@@ -466,6 +522,10 @@
       nativeName: "Bahasa Melayu",
       englishName: "Malay"
     },
+    'mt': {
+      nativeName: "Malti",
+      englishName: "Maltese"
+    },
     'mt-MT': {
       nativeName: "Malti",
       englishName: "Maltese"
@@ -473,6 +533,10 @@
     'my': {
       nativeName: "ဗမာစကာ",
       englishName: "Burmese"
+    },
+    'no': {
+      nativeName: "Norsk",
+      englishName: "Norwegian"
     },
     'nb': {
       nativeName: "Norsk (bokmål)",
@@ -496,11 +560,11 @@
     },
     'nl-BE': {
       nativeName: "Nederlands (België)",
-      englishName: "Dutch (België)"
+      englishName: "Dutch (Belgium)"
     },
     'nl-NL': {
-      nativeName: "Nederlands, Dutch",
-      englishName: "Netherlands, Dutch"
+      nativeName: "Nederlands (Nederland)",
+      englishName: "Dutch (Netherlands)"
     },
     'nn-NO': {
       nativeName: "Norsk (nynorsk)",
@@ -521,6 +585,10 @@
     'pa-IN': {
       nativeName: "ਪੰਜਾਬੀ (ਭਾਰਤ ਨੂੰ)",
       englishName: "Punjabi (India)"
+    },
+    'pl': {
+      nativeName: "Polski",
+      englishName: "Polish"
     },
     'pl-PL': {
       nativeName: "Polski",
@@ -626,9 +694,13 @@
       nativeName: "Svenska",
       englishName: "Swedish"
     },
-    'sw-KE': {
+    'sw': {
       nativeName: "Kiswahili",
       englishName: "Swahili"
+    },
+    'sw-KE': {
+      nativeName: "Kiswahili",
+      englishName: "Swahili (Kenya)"
     },
     'ta': {
       nativeName: "தமிழ்",
@@ -669,6 +741,10 @@
     'tl-ST': {
       nativeName: "tlhIngan-Hol",
       englishName: "Klingon"
+    },
+    'tr': {
+      nativeName: "Türkçe",
+      englishName: "Turkish"
     },
     'tr-TR': {
       nativeName: "Türkçe",
@@ -718,17 +794,33 @@
       nativeName: "ייִדיש (German)",
       englishName: "Yiddish (German)"
     },
+    'zh': {
+      nativeName: "中文",
+      englishName: "Chinese"
+    },
+    'zh-Hans': {
+      nativeName: "中文简体",
+      englishName: "Chinese Simplified"
+    },
+    'zh-Hant': {
+      nativeName: "中文繁體",
+      englishName: "Chinese Traditional"
+    },
     'zh-CN': {
-      nativeName: "中文(简体)",
-      englishName: "Simplified Chinese (China)"
+      nativeName: "中文（中国）",
+      englishName: "Chinese Simplified (China)"
     },
     'zh-HK': {
-      nativeName: "中文(香港)",
-      englishName: "Traditional Chinese (Hong Kong)"
+      nativeName: "中文（香港）",
+      englishName: "Chinese Traditional (Hong Kong)"
+    },
+    'zh-SG': {
+      nativeName: "中文（新加坡）",
+      englishName: "Chinese Simplified (Singapore)"
     },
     'zh-TW': {
-      nativeName: "中文(台灣)",
-      englishName: "Traditional Chinese (Taiwan)"
+      nativeName: "中文（台灣）",
+      englishName: "Chinese Traditional (Taiwan)"
     },
     'zu-ZA': {
       nativeName: "isiZulu",
@@ -736,47 +828,119 @@
     }
   };
 }));
-
-(function (window, angular) {
+;(function(window, angular) {
   angular
-    .module('k8LanguagePicker', ['templates-k8LanguagePicker', 'ui.bootstrap'])
+    .module('language-picker', ['templates-languagePicker', 'ui.bootstrap'])
     .constant('langMap', window.languageMappingList)
-    .directive('langPicker', [
-      '$modal',
+    .directive('languagePicker', [
+      '$uibModal',
       'langMap',
-      function ($modal, langMap) {
+      function($uibModal, langMap) {
         return {
-          restrict: 'AE',
+          restrict: 'A',
           transclude: true,
           scope: {
-            supportedLanguages: '=',
-            callback: '&onLanguageChange'
+            languages: '=',
+            callback: '&?onChange',
+            model: '=?',
+            empty: '@?',
+            flags: '@?',
+            icon: '@?',
+            help: '@?',
+            template: '@?'
           },
-          replace: true,
-          templateUrl: 'lang-picker-button.html',
-          link: function (scope, el, attrs, ctrl) {
+          templateUrl: 'language-picker-button.tpl.html',
+          link: function(scope, elm, attrs, ctrl) {
+
+            if (angular.isDefined(scope.icon)){
+               if (scope.icon == 'icon'){
+                  scope.ikon ='fa fa-language';
+               } else {
+                  scope.ikon = scope.icon;
+              }
+            }
+
+            var flags;
+            if (angular.isDefined(scope.flags)){
+               if (scope.flags == 'flags'){
+                  flags = true;
+               } else {
+                  flags = Boolean(scope.flags);
+              }
+            }
+
+            var modalTemplateUrl = 'language-picker-dialog.tpl.html';
+            if (angular.isDefined(scope.template)) {
+              modalTemplateUrl = scope.template;
+            }
+
+            function getLangCodeWithLowDash(locale) {
+              var splitLocale = locale.split('-');
+              var locale = 'en_US';
+
+              if (splitLocale.length > 1) {
+                locale = (splitLocale[0].toLowerCase() + '_' + splitLocale[1].toUpperCase());
+              } else {
+                locale = splitLocale[0].toLowerCase();
+              }
+
+              return locale;
+            }
+
+            function getCountry(locale) {
+              var splitLocale = locale.split('-');
+
+              if (splitLocale.length > 1) {
+                return splitLocale[1].toLowerCase();
+              }
+
+              return locale;
+            }
+
+            function createLanguageObj(locale) {
+              var language = langMap[locale] || {
+                nativeName: locale,
+                englishName: locale
+              };
+              language.code = locale;
+              language.country = getCountry(locale);
+              language.asLowDashCode = function() {
+                return getLangCodeWithLowDash(locale);
+              };
+              return language;
+            }
+
             scope.open = function() {
-              $modal.open({
-                templateUrl: 'lang-picker.html',
-                controller: function($scope, $modalInstance) {
-                  $scope.close = $modalInstance.close;
-                  $scope.limit = 24;
-                  $scope.supportedLanguages = scope.supportedLanguages;
-                  $scope.langInfo = $scope.supportedLanguages.map(function (lang) {
-                    var obj = langMap[lang] || {
-                      nativeName: lang,
-                      englishName: lang
-                    };
-                    obj.lang = lang;
-                    return obj;
+              $uibModal.open({
+                templateUrl: modalTemplateUrl,
+                controller: ['$scope', '$uibModalInstance', function($scope, $uibModalInstance) {
+                  $scope.close = $uibModalInstance.close;
+                  $scope.limitMin = 4;
+                  $scope.limitMax = 24;
+                  $scope.flags = flags;
+                  $scope.ikon = scope.ikon;
+                  $scope.help = scope.help;
+                  $scope.empty = scope.empty;
+                  $scope.languages = scope.languages.map(function(locale) {
+                    return createLanguageObj(locale);
                   });
-                  $scope.onLanguageChange = function(lang) {
-                    scope.callback(lang);
-                    $modalInstance.close();
+
+                  $scope.selectedLanguage = function(language) {
+                    if (language){
+                      scope.model  = language.code;
+                    } else {
+                      scope.model = undefined;
+                    }
+                    if (angular.isDefined(scope.callback)){
+                      scope.callback()(language);
+                    }
+                    $uibModalInstance.close();
                   };
-                }
+                }]
               });
             };
+
+            elm.bind('click', scope.open);
           }
         };
       }

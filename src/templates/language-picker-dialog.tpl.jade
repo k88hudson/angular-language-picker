@@ -1,0 +1,38 @@
+.modal-content
+  .modal-header
+    button.close(ng-click='close()')
+      span.fa.fa-times
+      span.sr-only Close
+    h3.modal-title
+     i(class='{{ikon}}')
+     |    Choose a language
+  .modal-body
+    .form-group(ng-show='languages.length > limitMin')
+      input.form-control(type='search', ng-model='search', placeholder='Search languages...')
+      h4 We are available in {{languages.length}} languages
+    .row
+      .col-xs-6.col-sm-4.col-lg-4(ng-show='empty')
+        a.language(ng-click='selectedLanguage(undefined)')
+          span(ng-if='flags')
+            i.fa.fa-language
+            | &nbsp;
+          span Any language
+
+      .col-xs-6.col-sm-4.col-lg-4(ng-repeat='lang in languages | filter:search | limitTo: limitMax')
+        a.language(ng-click='selectedLanguage(lang)')
+          span(ng-if='flags')
+            span(class='flag-icon flag-icon-{{lang.country}}')
+            | &nbsp;
+          span {{lang.nativeName}} 
+      .col-xs-6.col-sm-4.col-lg-4(ng-if='languages.length - limitMax > 0')
+        | + {{languages.length - limitMax}} more
+
+    div(ng-if='help')
+     <br>
+     .row
+        .col-lg-12 
+          .well.text-center.text-muted
+            | Don't you see your language? Help us 
+            a(href='{{help}}') translate
+            |  it!
+
